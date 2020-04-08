@@ -1,18 +1,25 @@
 #pragma once
-#include "structs.hpp"
 #include <list>
+#include <SFML/Graphics.hpp>
 
 class Game
 {
+	sf::RenderWindow window;
 	bool* keysPressed;
-	std::list<ToDraw> toDraw;
-
+	std::list<sf::Drawable*> toDraw;
+	//todo: std::queue< toDrawIterator > toDelete;
 public: 
 	Game();
 	~Game();
-	void Run();
+	int Run();
 
 protected:
-	void handleEvent(sf::Event& event);
-	void drawFrame();
+	Returns handleEvents();
+	Returns drawFrame();
+};
+
+enum struct Returns
+{
+	closeWin,
+	allGood
 };
