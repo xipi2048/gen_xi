@@ -1,8 +1,8 @@
-#include "game.h"
+﻿#include "game.h"
 
 
 Game::Game()
-	: window()
+	: window(sf::VideoMode(800, 600), "Generation XI")
 {
 	keysPressed = new bool[sf::Keyboard::KeyCount];
 }
@@ -11,11 +11,22 @@ Game::~Game()
 {
 	delete keysPressed;
 	for (auto d : toDraw)
-		delete d;
+		delete d.drawable;
 }
 
 int Game::Run()
 {
+	while (window.isOpen())
+	{
+		switch (handleEvents())
+		{
+		case Returns::closeWin:
+			window.close();
+			return 0;
+		}
+
+		drawFrame();
+	}
 	return 0;
 }
 

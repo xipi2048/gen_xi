@@ -1,12 +1,12 @@
 #pragma once
 #include <list>
-#include <SFML/Graphics.hpp>
+#include "structs.hpp"
 
 class Game
 {
 	sf::RenderWindow window;
 	bool* keysPressed;
-	std::list<sf::Drawable*> toDraw;
+	std::list<ToDraw> toDraw;
 	//todo: std::queue< toDrawIterator > toDelete;
 public: 
 	Game();
@@ -18,8 +18,3 @@ protected:
 	Returns drawFrame();
 };
 
-enum struct Returns
-{
-	closeWin,
-	allGood
-};
