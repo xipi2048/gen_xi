@@ -5,9 +5,9 @@
 class Game
 {
 	sf::RenderWindow window;
-	bool* keysPressed;
+	bool* keysPressed;	
 	std::list<ToDraw> toDraw;
-	//todo: std::queue< toDrawIterator > toDelete;
+	int currentLevel = -1;
 public: 
 	Game();
 	~Game();
@@ -16,5 +16,6 @@ public:
 protected:
 	Returns handleEvents();
 	Returns drawFrame();
+	Returns runLogic();
 };
 

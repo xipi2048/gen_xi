@@ -25,6 +25,7 @@ int Game::Run()
 			return 0;
 		}
 
+		runLogic();
 		drawFrame();
 	}
 	return 0;
@@ -59,13 +60,21 @@ Returns Game::drawFrame()
 		d != toDraw.end();
 		++d)
 	{
-		if (d->isVisible)
+		if (d->plsDelete)
 		{
-			window.draw(*d->drawable);
+			delete d--->drawable;
 		}
+
+		if (d->isVisible)
+			window.draw(*d->drawable);
 	}
 
 	window.display();
 
+	return Returns::allGood;
+}
+
+Returns Game::runLogic()
+{
 	return Returns::allGood;
 }
